@@ -10,8 +10,8 @@ You will get the status code and inference code like this in your command .
 
 ```
 Test image[9369] is created!
-tensorflow/test.png in gs://tfserving1 is deleted.
-Uploading data/test.png to gs://tfserving1 is finished.
+tensorflow/test.png in gs://your_bucket_name is deleted.
+Uploading data/test.png to gs://your_bucket_name is finished.
 200
 Bag
 ```
