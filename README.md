@@ -30,7 +30,7 @@ cd src
 python3 train.py
 ```
 Then you will get `fashion_mnist_weights.data-00000-of-00001` and `fashion_mnist_weights.index`.
-Those files are put in CLoud Storage.
+Those files are put in Cloud Storage.
 
 
 ## Prepare GCP environment
@@ -42,7 +42,7 @@ This toy program can be use within it.
 
 ### GCS
 
-In Cloud storage bucket you need to prepare directories as follows.
+In Cloud Storage bucket you need to prepare directories as follows.
 In tensorflow directory, please put files which are created at previous step as follows.
 
 ├── tensorflow  
@@ -71,9 +71,11 @@ This is key to your GCS, so please keep it in private.
 
 For More detail, see below.
 
-[GoogleCloudStorage GCSのPythonAPIの使い方](https://qiita.com/Hyperion13fleet/items/594c15ac24f149ab73c9)
-[Python クライアントライブラリで Google Cloud Storage の参照・作成・更新・削除操作をするにはどのメソッドを使えばよいのか確認してみた](https://dev.classmethod.jp/articles/gcs-python-client-libraries-how2/)
-[gcloud projects add-iam-policy-binding](https://cloud.google.com/sdk/gcloud/reference/projects/add-iam-policy-binding#PROJECT_ID)
+- [GoogleCloudStorage GCSのPythonAPIの使い方](https://qiita.com/Hyperion13fleet/items/594c15ac24f149ab73c9)
+
+- [Python クライアントライブラリで Google Cloud Storage の参照・作成・更新・削除操作をするにはどのメソッドを使えばよいのか確認してみた](https://dev.classmethod.jp/articles/gcs-python-client-libraries-how2/)
+
+- [gcloud projects add-iam-policy-binding](https://cloud.google.com/sdk/gcloud/reference/projects/add-iam-policy-binding#PROJECT_ID)
 
 ### Cloud Functions
 
@@ -100,4 +102,5 @@ So you should not open this url to public. Cloud Functions incur chaerges based 
 # Reference
 
 - [How to serve deep learning models using TensorFlow 2.0 with Cloud Functions](https://cloud.google.com/blog/products/ai-machine-learning/how-to-serve-deep-learning-models-using-tensorflow-2-0-with-cloud-functions)
-Training code is based on this site.
+
+Training code, main.py and requirments.txt for Cloud Function is based on this site.
