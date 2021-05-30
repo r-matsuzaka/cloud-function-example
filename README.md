@@ -5,7 +5,7 @@ This is a toy example code for cloud function using fashion MNIST.
 You upload a fashion MNIST image, which is randomly chosen from test dataset, to Cloud storage(GCS) for inference.
 Pretrained model is also set in GCS.
 You request Cloud Functions as http requests to get the inference result.
-You will get the status code and inference code like this in your command .
+You will get the status code and inference like this in your command .
 
 
 ```
