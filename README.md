@@ -50,11 +50,12 @@ In tensorflow directory, please put files which are created at previous step as 
 │   └── fashion_mnist_weights.index  
 └── tmp  
 
-Next you need to get credential key to access to GCP bucket from local because you upload `test.png` in tensorflow directory in GCS.
+Next you need to get credential key to get access to GCP bucket from local because you upload `test.png` in tensorflow directory in GCS.
 
 Open Google command line tool in GCP,
 
 Then run this commands. Please fill your project id at {project_id}.
+
 You don't need {}.
 
 ```
@@ -65,7 +66,8 @@ gcloud projects add-iam-policy-binding {project_id} --member=serviceAccount:gcs-
 cloud iam service-accounts keys create gcs-access.json --iam-account gcs-access@{project_id}.iam.gserviceaccount.com
 ```
 
-Then, you will get a credential key as "gcs-access.json", please copy it in your key directory.
+Then, you will get a credential key as "gcs-access.json", please copy it in your `key` directory.
+
 This is key to your GCS, so please keep it in private.
 
 
@@ -81,19 +83,24 @@ For More detail, see below.
 
 Please copy and paste at the `main.py` and `requirements.py` in `src/cloud-funciotns` for codes in Cloud Functions.
 
-Setting for Cloud functions.
+Setting for Cloud Functions.
 ```
 Memory:2 GB
 Runtime:Python3.7
 Entrypoint:handler
 ```
-In this code example, http request is used thus permission should be added.
+In this code example, http request is used. Thus permission should be added.
+
 Navigate to permission page and choose `allUsers` for member section and `Cloud Functions Invoker`(`Cloud Functions 起動元`)for a role.
+
 If you don't set the permission you get 403 error.
+
 See [this site(Japanese)](https://qiita.com/toshiaki_takase/items/ce65cd5582a80917b52f) as reference.
 
 After deploying Cloud Functions please copy trigger whose form is `http://......` to give `main.py`.
+
 This triger can be accessed publicly because of permission setting mentioned above.
+
 So you should not open this url to public. Cloud Functions incur chaerges based on the time you trigger Cloud Functions.
 
 ### Run code
