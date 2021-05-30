@@ -17,10 +17,14 @@ Bag
 ```
 
 # Install
-At loacal, run `poetry install`.
+At loacal, run
+
+ ```
+ poetry install
+ ```
 
 # How to use
-1. Create trained model
+## Create trained model
 ```
 cd src
 python3 train.py
@@ -29,24 +33,24 @@ Then you will get `fashion_mnist_weights.data-00000-of-00001` and `fashion_mnist
 Those files are put in CLoud Storage.
 
 
-2. Prepare GCP environment
+## Prepare GCP environment
 
 In this example, you use 2 GCP services which are Cloud Storage(GCS) and Cloud Functions.
 Thre is a free tier for new user for GCP.
 This toy program can be use within it.
 
 
-- GCS
+### GCS
+
 In Cloud storage bucket you need to prepare directories as follows.
 In tensorflow directory, please put files which are created at previous step as follows.
 
-├── tensorflow
-│   ├── fashion_mnist_weights.data-00000-of-00001
-│   └── fashion_mnist_weights.index
-└── tmp
+├── tensorflow  
+│   ├── fashion_mnist_weights.data-00000-of-00001  
+│   └── fashion_mnist_weights.index  
+└── tmp  
 
-Next you need to get credential key to access to GCP bucket from local.
-At `upload.py` process. you upload `test.png` in tensorflow directory in GCS.
+Next you need to get credential key to access to GCP bucket from local because you upload `test.png` in tensorflow directory in GCS.
 
 Open Google command line tool in GCP,
 
@@ -66,11 +70,13 @@ This is key to your GCS, so please keep it in private.
 
 
 For More detail, see below.
+
 [GoogleCloudStorage GCSのPythonAPIの使い方](https://qiita.com/Hyperion13fleet/items/594c15ac24f149ab73c9)
 [Python クライアントライブラリで Google Cloud Storage の参照・作成・更新・削除操作をするにはどのメソッドを使えばよいのか確認してみた](https://dev.classmethod.jp/articles/gcs-python-client-libraries-how2/)
 [gcloud projects add-iam-policy-binding](https://cloud.google.com/sdk/gcloud/reference/projects/add-iam-policy-binding#PROJECT_ID)
 
-- Cloud Functions
+### Cloud Functions
+
 Please copy and paste at the `main.py` and `requirements.py` in `src/cloud-funciotns` for codes in Cloud Functions.
 
 Setting for Cloud functions.
@@ -88,7 +94,7 @@ After deploying Cloud Functions please copy trigger whose form is `http://......
 This triger can be accessed publicly because of permission setting mentioned above.
 So you should not open this url to public. Cloud Functions incur chaerges based on the time you trigger Cloud Functions.
 
-2. Run code
+### Run code
 `python3 main.py --project_id {YOUR_PROJECT_ID} --bucket_name {YOUR_BUCKET_NAME}  --trigger {YOUR_TRIGGER}` 
 
 # Reference
