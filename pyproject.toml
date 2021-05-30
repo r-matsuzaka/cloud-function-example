@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "cloud-function-example"
+version = "0.1.0"
+description = ""
+authors = ["r-matsuzaka <matsuzakaryo@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+google-cloud = "^0.34.0"
+google = "^3.0.0"
+argparse = "^1.4.0"
+tensorflow = "^2.5.0"
+Pillow = "^8.2.0"
+requests = "^2.25.1"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
